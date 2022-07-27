@@ -24,3 +24,36 @@ The application and container should be in a network where they can resolve thei
  - docker volume
  - docker logs
  - docker exec
+
+## Testing the application
+
+
+* Get all the products in the database table.
+
+```
+curl -X GET http://localhost:3001/products
+```
+
+* Get product with the specified id.
+
+```
+curl -X GET http://localhost:3001/products?id='product_id_here'
+```
+
+* Add product to database
+
+```
+curl -X POST -d '{"name": "Oppo RENO 2F","price": 16499.99,"currency": "INR"}' -H 'Content-Type: application/json' http://localhost:3001/products
+```
+
+* Update product data by product ID
+
+```
+curl -X PUT -d '{"name": "Oppo RENO 2F","price": 16499.99,"currency": "INR"}' -H 'Content-Type: application/json' http://localhost:3001/products?id='product_id_here'
+```
+
+* Delete product with the specified id
+
+```
+curl -X DELETE http://localhost:3001/products?id='product_id_here'
+```
